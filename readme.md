@@ -85,12 +85,45 @@ python check-permissions.py
 
 If successful, it will display a list of sites your service account can access. If you encounter errors, check the troubleshooting section below.
 
+
 ## Script Configuration
 
 You can modify the following parameters in `get-urls.py`:
 - `startDate`: Start date for the data range (format: YYYY-MM-DD)
 - `endDate`: End date for the data range (format: YYYY-MM-DD)
 - `siteUrl`: The URL of your site in Search Console (must match exactly)
+- `rowLimit`: Maximum number of rows to fetch per request (default: 25000)
+
+The script automatically handles pagination to fetch all available data, bypassing the 1000-row limit of the Search Console web interface. It will:
+- Fetch data in chunks of up to 25,000 rows
+- Continue fetching until all available data is retrieved
+- Show progress as it fetches the data
+- Combine all results into a single JSON file
+
+## JSON to CSV Converter
+
+The project includes a `json-to-csv.py` script that converts the Search Console API JSON output into a more manageable CSV format. This script:
+
+1. Takes the JSON output from the Search Console API
+2. Converts it into a structured CSV file with the following columns:
+   - Title
+   - URL
+   - Clicks
+   - Impressions
+   - Click Through Rate (CTR)
+   - Position
+
+To use the converter:
+```bash
+python json-to-csv.py
+```
+
+The script will:
+- Read from `results.json` (the default output from the Search Console API)
+- Create a new file called `results.csv` with the converted data
+- Print a confirmation message when complete
+
+You can modify the input and output filenames in the script if needed.
 
 ## Security Note
 
