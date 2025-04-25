@@ -1,4 +1,7 @@
+.DS_Store
 key.json
 results.txt
 results.json
 results.csv
+*.csv
+*.json
