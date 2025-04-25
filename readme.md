@@ -70,6 +70,21 @@ This tool allows you to export all indexed URLs from Google Search Console, bypa
 
 The script will fetch all indexed URLs for the specified site and print them to the console. You can modify the date range and other parameters in the script as needed.
 
+## Permission Check Script
+
+The project includes a `check-permissions.py` script that helps verify if your service account is properly set up and has the correct permissions. This script:
+
+1. Tests the connection to the Search Console API
+2. Lists all sites that your service account has access to
+3. Helps diagnose permission issues before running the main export script
+
+To use the permission check script:
+```bash
+python check-permissions.py
+```
+
+If successful, it will display a list of sites your service account can access. If you encounter errors, check the troubleshooting section below.
+
 ## Script Configuration
 
 You can modify the following parameters in `get-urls.py`:
