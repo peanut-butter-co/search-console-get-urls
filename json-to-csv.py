@@ -2,8 +2,8 @@ import json
 import csv
 
 # Input and output file names
-input_json = 'results.json'
-output_csv = 'results.csv'
+input_json = 'results-all.json'
+output_csv = 'results-all.csv'
 
 # Load JSON data from file
 with open(input_json, 'r', encoding='utf-8') as f:

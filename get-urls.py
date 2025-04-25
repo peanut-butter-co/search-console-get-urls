@@ -63,7 +63,7 @@ final_response = {
 }
 
 # Save the complete data to a JSON file
-with open('results.json', 'w') as f:
+with open('results-all.json', 'w') as f:
     json.dump(final_response, f)
 
 print(f"✅ Results saved to results.json. Total rows: {len(all_rows)}")
